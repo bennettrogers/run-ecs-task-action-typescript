@@ -3,12 +3,19 @@
     "eslint:recommended",
     "plugin:jest/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:prettier/recommended"
   ],
-  "plugins": ["@typescript-eslint", "jest"],
+  "plugins": ["@typescript-eslint", "jest", "prettier",
+  "simple-import-sort"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": true
   },
-  "root": true
+  "root": true,
+  "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "prettier/prettier": ["error"]
+  }
 }
