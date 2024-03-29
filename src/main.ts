@@ -1,13 +1,18 @@
-import * as core from '@actions/core'
-import { run } from './run.js'
+import * as core from "@actions/core";
+
+import { run } from "./run.js";
 
 const main = async (): Promise<void> => {
   await run({
-    name: core.getInput('name', { required: true }),
-  })
-}
+    ecsService: core.getInput("ecsService", { required: true }),
+    ecsCluster: core.getInput("ecsCluster", { required: true }),
+    ecsTaskDefinition: core.getInput("taskDefinition", { required: true }),
+    ecsContainerName: core.getInput("containerName", { required: true }),
+    command: core.getInput("command", { required: true }),
+  });
+};
 
 main().catch((e: Error) => {
-  core.setFailed(e)
-  console.error(e)
-})
+  core.setFailed(e);
+  console.error(e);
+});

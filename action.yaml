@@ -1,10 +1,23 @@
-name: typescript-action
-description: Template of TypeScript Action
+name: 'Run One-off ECS Task'
+description: 'Runs the specified ECS task as a one-off task with the specified command'
 
 inputs:
-  name:
-    description: example input
+  ecsService:
+    description: 'The name of the ECS service to run the task on'
     required: true
+  ecsCluster:
+    description: 'The name of the ECS cluster to run the task on'
+    required: true
+  ecsTaskDefinition:
+    description: 'The name of the ECS task definition to run'
+    required: true
+  command:
+    description: 'The command to run in the task'
+    required: true
+
+outputs:
+  taskArn:
+    description: 'The ARN of the task that was run'
 
 runs:
   using: 'node20'
