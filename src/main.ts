@@ -6,8 +6,8 @@ const main = async (): Promise<void> => {
   await run({
     ecsService: core.getInput("ecsService", { required: true }),
     ecsCluster: core.getInput("ecsCluster", { required: true }),
-    ecsTaskDefinition: core.getInput("taskDefinition", { required: true }),
-    ecsContainerName: core.getInput("containerName", { required: true }),
+    ecsTaskDefinition: core.getInput("ecsTaskDefinition", { required: true }),
+    ecsContainerName: core.getInput("ecsContainerName", { required: true }),
     command: core.getInput("command", { required: true }),
   });
 };
