@@ -11,6 +11,9 @@ inputs:
   ecsTaskDefinition:
     description: 'The name of the ECS task definition to run'
     required: true
+  ecsContainerName:
+    description: 'The name of the container in the task definition to run the command in'
+    required: true
   command:
     description: 'The command to run in the task'
     required: true
