@@ -9,3 +9,8 @@
 // test("run successfully", async () => {
 //   await expect(run({ ecsCluster, ecsService, ecsTaskDefinition, ecsContainerName, command })).resolves.toBeUndefined();
 // }, 120000);
+
+// Dummy test
+test("dummy", () => {
+  expect(true).toBe(true);
+});
