@@ -77,11 +77,17 @@ export const run = async (inputs: Inputs): Promise<void> => {
 
   core.info(`Task started successfully. Task ARN: ${taskArn}`);
 
-  await waitUntilTasksRunning({ client, maxWaitTime: 120 }, { cluster: inputs.ecsCluster, tasks: [taskArn] });
+  await waitUntilTasksRunning(
+    { client, maxWaitTime: 120, minDelay: 1, maxDelay: 1 }, // Wait for 120 seconds, polling every 1 second
+    { cluster: inputs.ecsCluster, tasks: [taskArn] },
+  );
 
   core.info("Task is running. Waiting for it to stop...");
 
-  await waitUntilTasksStopped({ client, maxWaitTime: 120 }, { cluster: inputs.ecsCluster, tasks: [taskArn] });
+  await waitUntilTasksStopped(
+    { client, maxWaitTime: 120, minDelay: 1, maxDelay: 1 }, // Wait for 120 seconds, polling every 1 second
+    { cluster: inputs.ecsCluster, tasks: [taskArn] },
+  );
 
   core.info("Task stopped successfully.");
 
