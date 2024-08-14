@@ -115,6 +115,8 @@ export const run = async (inputs: Inputs): Promise<void> => {
   const exitCode = task.containers && task.containers[0].exitCode;
 
   if (exitCode !== 0) {
+    core.error(`Command "${inputs.command}" failed with exit code: ${exitCode}`);
+    core.error(JSON.stringify(task, null, 2));
     throw new Error(`Command failed with exit code: ${exitCode}`);
   }
 
